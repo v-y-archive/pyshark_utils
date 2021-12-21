@@ -1,6 +1,5 @@
 import pyshark
-from pyshark_parser import packet_util
-from pyshark_parser import layer_util
+from . import layer_utils
 
 
 def get_layer_names(pcap):
@@ -112,7 +111,7 @@ def get_all_packets_with_exact_value(pcap, value):
 	packets = []
 	for packet in pcap:
 		for current_layer in packet.layers:
-			if layer_util.layer_has_field_with_matching_value(current_layer, value):
+			if layer_utils.layer_has_field_with_matching_value(current_layer, value):
 				packets.append(packet)
 				break
 
@@ -136,7 +135,7 @@ def get_all_packets_with_value_contained(pcap, value):
 	packets = []
 	for packet in pcap:
 		for current_layer in packet.layers:
-			if layer_util.layer_has_field_containing_value(current_layer, value):
+			if layer_utils.layer_has_field_containing_value(current_layer, value):
 				packets.append(packet)
 				break
 
