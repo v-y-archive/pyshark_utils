@@ -1,5 +1,4 @@
 """Flow class for aggregating packets into a Flow"""
-from __future__ import print_function
 
 from datetime import datetime, timedelta
 from collections import defaultdict
