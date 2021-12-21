@@ -5,9 +5,6 @@ import binascii
 import netifaces
 
 
-# Local imports
-from chains.utils import file_utils, compat
-
 def get_default_interface():
 	"""Grab the name of the local default network interface"""
 	return netifaces.gateways()["default"][netifaces.AF_INET][1]
@@ -32,7 +29,7 @@ def mac_to_str(address):
 	   Returns:
 		   str: Printable/readable MAC address
 	"""
-	return ":".join("%02x" % compat.ord(b) for b in address)
+	return ":".join("%02x" % b for b in address)
 
 def str_to_mac(mac_string):
 	"""Convert a readable string to a MAC address
